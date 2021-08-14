@@ -10,3 +10,4 @@ Belajar konsep dan dasar-dasar DBMS MySQL
 	ke DBMS untuk melakukan proses manajemen datanya, seperti menambah, mengubah, menghapus atau mengambil data.
 - Contoh DBMS yang populer seperti MySQL, PostgreSQL, MongoDB, Oracle, Dll.
 - Ada banyak sekali jenis-jenis DBMS, seperti Relational Database, Document Database, Key-Value Database, Dll.
+test
