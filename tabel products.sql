@@ -126,8 +126,33 @@ SELECT * FROM products WHERE category NOT IN ('makanan','minuman');
 SELECT id, category, price, NAME FROM products ORDER BY category ASC,price DESC ,NAME DESC;
 
 
+-- Limit Clause
+SELECT * FROM products ORDER BY price LIMIT 5;
+-- Limit page
+SELECT * FROM products ORDER BY id LIMIT 5,5;
+SELECT * FROM products ORDER BY id LIMIT 10,5;
 
+-- SELECT DISTINCT : memfilter duplicate 
+SELECT DISTINCT category FROM products;
 
+-- aggregate, matematika function
+SELECT id, NAME, price, price DIV 1000 AS 'Price in K' FROM products;
+SELECT MAX(price) AS 'harga termahal' FROM products;
+SELECT id, NAME, category, price FROM products WHERE price DIV 1000 > 15;
+SELECT AVG(price) AS 'harga rata-rata' FROM products;
+SELECT COUNT(id) AS 'Total Product' FROM products;
+SELECT MIN(price) AS 'harga termurah' FROM products;
+SELECT SUM(quantity) AS 'total stock' FROM products; 
+
+-- group by
+SELECT SUM(quantity) AS 'Total stock', category FROM products GROUP BY category;
+SELECT COUNT(id) AS 'Total Product', category FROM products GROUP BY category;
+SELECT MAX(price) AS 'Product termahal', category FROM products GROUP BY category;
+SELECT MIN(price) AS 'Product termurah', category FROM products GROUP BY category;
+SELECT AVG(price) AS 'Rata-rata harga', category FROM products GROUP BY	category;
+
+-- having
+SELECT COUNT(id) AS total, category FROM products GROUP BY category HAVING total > 5 ;
 
 
 
