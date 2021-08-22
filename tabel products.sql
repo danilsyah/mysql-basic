@@ -156,6 +156,54 @@ SELECT COUNT(id) AS total, category FROM products GROUP BY category HAVING total
 
 
 
+-- string function
+SELECT id,
+	LOWER(NAME) AS 'Name Lower',
+	UPPER(NAME) AS 'Name Upper',
+	LENGTH(NAME) AS 'Name Length'
+FROM products;
 
+-- extract date dan time
+SELECT id, created_at,
+	EXTRACT(YEAR FROM created_at) AS YEAR,
+	EXTRACT(MONTH FROM created_at) AS MONTH
+FROM products;
+
+SELECT id, created_at, YEAR(created_at), MONTH(created_at) FROM products;
+
+-- flow control
+SELECT id,
+	CASE category
+	WHEN 'makanan' THEN 'ENAK'
+	WHEN 'minuman' THEN 'SEGAR'
+	ELSE 'Apa itu'
+	END AS category
+FROM products;
+
+-- if function
+SELECT id,
+	price,
+	IF(price <= 15000, 'Murah', IF(price <= 20000, 'Mahal','Mahal Banget')) AS 'Mahal?'
+FROM products;
+
+-- if null
+SELECT id, NAME, IFNULL(description, 'Kosong') AS description FROM products;
+
+UPDATE products
+SET price = 10000
+WHERE price < 10000;
+
+SELECT * FROM products
+
+-- check
+ALTER TABLE products
+ADD CONSTRAINT price_check CHECK (price >= 10000);
+
+DESCRIBE products
+
+SHOW CREATE TABLE products;
+
+INSERT INTO products (id, NAME,category, price, quantity)
+VALUES ('P0020','Permen', 'lain-lain', 500, 1000);
 
 
