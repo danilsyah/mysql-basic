@@ -207,3 +207,17 @@ INSERT INTO products (id, NAME,category, price, quantity)
 VALUES ('P0020','Permen', 'lain-lain', 500, 1000);
 
 
+-- fulltext pengganti LIKE untuk lebih cepat
+
+ALTER TABLE products
+ADD FULLTEXT product_fulltext (NAME, description);
+
+SHOW CREATE TABLE products;
+-- mode fulltext
+SELECT * FROM products WHERE MATCH(NAME,description) AGAINST('ayam' IN NATURAL LANGUAGE MODE);
+SELECT * FROM products WHERE MATCH(NAME,description) AGAINST('+ayam -bakso' IN BOOLEAN MODE);
+SELECT * FROM products WHERE MATCH(NAME,description) AGAINST('bakso' WITH QUERY EXPANSION);
+
+SELECT * FROM products
+
+
