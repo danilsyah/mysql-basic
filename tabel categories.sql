@@ -33,3 +33,6 @@ where id in ('P0002','P0003','P0004,','P0005','P0006','P0007','P0008','P0009','P
 select * 
 from products as p
 join categories as c on (p.id_categories = c.id)
+
+insert into categories (id,name) values ('C004','oleh-oleh'),('C005','cemilan');
+

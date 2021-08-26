@@ -203,7 +203,7 @@ DESCRIBE products
 
 SHOW CREATE TABLE products;
 
-INSERT INTO products (id, NAME,category, price, quantity)
+INSERT INTO products (id, name,category, price, quantity)
 VALUES ('P0020','Permen', 'lain-lain', 500, 1000);
 
 
@@ -219,5 +219,12 @@ SELECT * FROM products WHERE MATCH(NAME,description) AGAINST('+ayam -bakso' IN B
 SELECT * FROM products WHERE MATCH(NAME,description) AGAINST('bakso' WITH QUERY EXPANSION);
 
 SELECT * FROM products
+
+INSERT INTO products (id, name, price, quantity)
+VALUES ('P0021','coklat', 1000, 20),
+		('P0022','wajit', 15000, 20),
+		('P0023','keripik', 13000, 50);
+
+
 
 
